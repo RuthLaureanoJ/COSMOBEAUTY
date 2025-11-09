@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COSMO BEAUTY - Mi Perfil</title>
+    <link rel="stylesheet" href="css/style.css"> 
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="imagenes/logo_cosmobeauty.png" alt="CosmoBeauty Logo" style="height: 40px; margin-right: 10px;">
+            <h1>Feria Internacional de Maquillaje y Belleza</h1>
+        </div>
+        <nav class="nav-menu">
+            <a href="index.html">Inicio</a>
+            <a href="registro.html">Registro</a>
+            <a href="mis-eventos.html">Mis eventos</a>
+            <a href="perfil.html">Perfil</a>
+            <button id="btn-login-logout" class="btn-primary">Iniciar Sesión</button>
+        </nav>
+    </header>
+    
+    <main class="container">
+        <h2>🧑‍💻 Mi Perfil de Usuario</h2>
+        <div class="perfil-card">
+            <h3>Información Personal</h3>
+            <p><strong>Estado:</strong> Debes iniciar sesión para ver tu perfil.</p>
+            
+            <div id="perfil-info-dinamica" class="perfil-info" style="display: none;">
+                <p><strong>Nombre:</strong> <span id="perfilNombre">Cargando...</span></p>
+                <p><strong>Email:</strong> <span id="perfilEmail">Cargando...</span></p>
+            </div>
+            
+            <button class="btn-primary" style="margin-top: 20px;">Editar Perfil</button>
+        </div>
+    </main>
+
+    <div id="loginModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal-btn" id="closeLoginModal">&times;</span>
+            <div class="modal-header">
+                <h3>¡Bienvenido a COSMO BEAUTY!</h3>
+                <p>¿No tienes cuenta? <a href="registro.html">Regístrate aquí</a></p>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Correo electrónico</label>
+                    <input type="email" id="loginEmail" placeholder="ej: tu@correo.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Contraseña</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <div class="forgot-password">
+                    <a href="#">¿Olvidaste tu contraseña?</a>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%;">Ingresar</button>
+                <p id="loginErrorMessage" class="login-error-message"></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Lógica simple para cargar los datos del perfil si el usuario está logueado
+        document.addEventListener('DOMContentLoaded', () => {
+            // Utilizamos la instancia 'app' definida en script.js
+            const usuario = app.getUsuarioLogueado(); 
+            const perfilCard = document.querySelector('.perfil-card');
+            const infoDin = document.getElementById('perfil-info-dinamica');
+            const estado = perfilCard.querySelector('p:first-of-type');
+
+            if (usuario) {
+                if (estado) estado.style.display = 'none';
+                if (infoDin) infoDin.style.display = 'block';
+                
+                const nombreSpan = document.getElementById('perfilNombre');
+                const emailSpan = document.getElementById('perfilEmail');
+                if (nombreSpan) nombreSpan.textContent = usuario.getNombre();
+                if (emailSpan) emailSpan.textContent = usuario.getEmail();
+
+            } else {
+                if (estado) estado.style.display = 'block';
+                if (infoDin) infoDin.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
