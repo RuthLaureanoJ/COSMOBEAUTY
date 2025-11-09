@@ -477,6 +477,7 @@ h2 {
 /* Adaptación para Pantallas Pequeñas (Móviles y Tabletas Verticales - Hasta 768px) */
 @media (max-width: 768px) {
     
+    /* 1. Encabezado - Colapsa y centra */
     .header {
         flex-direction: column;
         padding: 10px 15px;
@@ -489,18 +490,19 @@ h2 {
     }
     
     .logo h1 {
-        font-size: 1.5em;
+        font-size: 1.4em; /* Reducimos el tamaño para móviles */
     }
     
     .nav-menu {
         flex-wrap: wrap; /* Permite que los elementos se envuelvan */
         justify-content: center;
+        width: 100%; /* Aseguramos que ocupe todo el ancho */
     }
     
     .nav-menu a, .nav-menu .btn-primary {
-        margin: 5px 8px;
+        margin: 5px 5px;
         padding: 8px 10px;
-        font-size: 0.9em;
+        font-size: 0.85em; /* Reducimos el texto de navegación */
     }
 
     .container {
@@ -508,20 +510,20 @@ h2 {
         margin: 20px auto;
     }
 
-    /* Ajuste para el grid de eventos: una sola columna */
+    /* 2. Grid de Eventos - Una sola columna */
     .eventos-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
 
-    /* Modal de Detalles: ocupa casi toda la pantalla */
+    /* 3. Modal de Detalles - Pantalla Completa (Full Screen Modal) */
     #detallesModalContent {
         max-width: 100%;
         height: 100%;
         width: 100%;
         margin: 0;
         border-radius: 0;
-        overflow-y: auto; /* Permite scroll si el contenido es largo */
+        overflow-y: auto; 
     }
 
     #detallesModalContent .modal-img {
@@ -534,17 +536,18 @@ h2 {
         font-size: 30px;
     }
 
-    /* Mis Eventos: apilamiento vertical */
+    /* 4. Mis Eventos - Apilamiento vertical con botones al 100% */
     .evento-inscrito-fila {
         flex-direction: column;
         align-items: flex-start;
         padding: 15px;
+        width: auto; /* Permite que el contenido se ajuste al padding */
     }
 
-    /* Estilos para alinear los costos y botones */
     .detalle-costo {
         width: 100%;
-        flex-direction: row;
+        /* Usamos flex para poner el costo/estado y el botón de pago en la misma línea */
+        flex-direction: row; 
         justify-content: space-between;
         align-items: center;
         margin-right: 0;
@@ -553,7 +556,11 @@ h2 {
 
     .btn-cancelar {
         margin-top: 10px;
-        width: 100%;
+        width: 100%; /* El botón Cancelar se extiende completamente */
+    }
+
+    .detalle-costo .btn-pago {
+        width: auto; /* El botón de pago mantiene su tamaño */
     }
 }
 
