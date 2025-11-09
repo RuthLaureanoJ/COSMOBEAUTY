@@ -7,7 +7,7 @@ html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Evita el scroll horizontal en cualquier dispositivo */
 }
 
 body {
@@ -21,8 +21,15 @@ body {
     max-width: 1200px;
     margin: 30px auto;
     padding: 0 20px;
-    width: 95%;
+    width: 100%;
 }
+
+img {
+    max-width: 100%; /* Asegura que las imágenes no desborden */
+    height: auto;
+    display: block;
+}
+
 
 /* --- ESTILOS DEL ENCABEZADO (Header) --- */
 .header {
