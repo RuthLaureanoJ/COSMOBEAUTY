@@ -1,1 +1,0 @@
-Proyecto CosmoBeauty mult página. Abre index.html en el navegador.
