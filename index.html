@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COSMO BEAUTY - Feria Internacional de Maquillaje y Belleza</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    </head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <img src="imagenes/logo_cosmobeauty.png" alt="Logo Cosmo Beauty">
+            <h1>Feria Internacional de Maquillaje y Belleza</h1>
+        </div>
+        <nav class="nav-menu">
+            <a href="index.html">Inicio</a>
+            <a href="registro.html">Registro</a>
+            <a href="mis-eventos.html" id="navMisEventos" style="display: none;">Mis eventos</a>
+            <a href="perfil.html">Perfil</a>
+            <button id="btn-login-logout" class="btn-primary">Iniciar Sesión</button>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>📅 Próximos Eventos</h2>
+        <p class="descripcion-eventos">Descubre y regístrate en los mejores eventos de la industria de la belleza. **Haz clic en la tarjeta para ver detalles y registrarte**.</p>
+        
+        <div id="eventos-contenedor" class="eventos-grid">
+            </div>
+    </div>
+
+    <div id="loginModal" class="modal-overlay">
+        <div class="modal-content">
+            <span id="closeLoginModal" class="close-modal-btn">&times;</span>
+            <div class="modal-header">
+                <h3>Iniciar Sesión</h3>
+                <p>¿No tienes cuenta? <a href="registro.html">Regístrate aquí.</a></p>
+            </div>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email:</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Contraseña:</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <p id="loginErrorMessage" class="login-error-message"></p>
+                <button type="submit" class="btn-primary">Ingresar</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="detallesModal" class="modal-overlay">
+        <div id="detallesModalContent">
+            </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

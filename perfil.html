@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COSMO BEAUTY - Mi Perfil</title>
+    <link rel="stylesheet" href="css/style.css"> 
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="imagenes/logo_cosmobeauty.png" alt="CosmoBeauty Logo" style="height: 40px; margin-right: 10px;">
+            <h1>Feria Internacional de Maquillaje y Belleza</h1>
+        </div>
+        <nav class="nav-menu">
+            <a href="index.html">Inicio</a>
+            <a href="registro.html">Registro</a>
+            <a href="mis-eventos.html" id="navMisEventos" style="display: none;">Mis eventos</a> 
+            <a href="perfil.html">Perfil</a>
+            <button id="btn-login-logout" class="btn-primary">Iniciar Sesión</button>
+        </nav>
+    </header>
+    
+    <main class="container">
+        <h2>🧑‍💻 Mi Perfil de Usuario</h2>
+        <div class="perfil-card">
+            <h3>Información Personal</h3>
+            
+            <p id="perfilEstado" class="alerta-vacio"><strong>Estado:</strong> Debes iniciar sesión para ver tu perfil.</p>
+            
+            <div id="perfil-info-dinamica" class="perfil-info" style="display: none;">
+                <p><strong>Nombre:</strong> <span id="perfilNombre">Cargando...</span></p>
+                <p><strong>Email:</strong> <span id="perfilEmail">Cargando...</span></p>
+            </div>
+            
+            <form id="perfilEdicionForm" style="display: none; margin-top: 20px;">
+                <div class="form-group">
+                    <label for="inputNuevoNombre">Nuevo Nombre:</label>
+                    <input type="text" id="inputNuevoNombre" required placeholder="Ingresa tu nuevo nombre">
+                </div>
+                <p id="edicionPerfilMensaje" style="color: red; margin-bottom: 10px;"></p>
+                <button type="submit" class="btn-primary">Guardar Cambios</button>
+                <button type="button" id="btnCancelarEdicion" class="btn-secondary">Cancelar</button>
+            </form>
+            
+            <button id="btnEditarPerfil" class="btn-primary" style="margin-top: 20px; display: none;">Editar Perfil</button>
+        </div>
+    </main>
+
+    <div id="loginModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-modal-btn" id="closeLoginModal">&times;</span>
+            <div class="modal-header">
+                <h3>¡Bienvenido a COSMO BEAUTY!</h3>
+                <p>¿No tienes cuenta? <a href="registro.html">Regístrate aquí</a></p>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Correo electrónico</label>
+                    <input type="email" id="loginEmail" placeholder="ej: tu@correo.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Contraseña</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <div class="forgot-password">
+                    <a href="#">¿Olvidaste tu contraseña?</a>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%;">Ingresar</button>
+                <p id="loginErrorMessage" class="login-error-message"></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Lógica simple para cargar los datos del perfil y manejar la edición
+        document.addEventListener('DOMContentLoaded', () => {
+            // Utilizamos la instancia 'app' definida en script.js
+            const usuario = app.getUsuarioLogueado(); 
+            const infoDin = document.getElementById('perfil-info-dinamica');
+            const estado = document.getElementById('perfilEstado');
+            const btnEditar = document.getElementById('btnEditarPerfil');
+            const edicionForm = document.getElementById('perfilEdicionForm');
+            const inputNombre = document.getElementById('inputNuevoNombre');
+            const mensaje = document.getElementById('edicionPerfilMensaje');
+
+            // Función para mostrar la vista de perfil normal o la de "no logueado"
+            function mostrarPerfil() {
+                if (usuario) {
+                    if (estado) estado.style.display = 'none';
+                    if (infoDin) infoDin.style.display = 'block';
+                    if (btnEditar) btnEditar.style.display = 'inline-block';
+                    if (edicionForm) edicionForm.style.display = 'none';
+                    
+                    const nombreSpan = document.getElementById('perfilNombre');
+                    const emailSpan = document.getElementById('perfilEmail');
+                    if (nombreSpan) nombreSpan.textContent = usuario.getNombre();
+                    if (emailSpan) emailSpan.textContent = usuario.getEmail();
+
+                } else {
+                    if (estado) estado.style.display = 'block';
+                    if (infoDin) infoDin.style.display = 'none';
+                    if (btnEditar) btnEditar.style.display = 'none';
+                    if (edicionForm) edicionForm.style.display = 'none';
+                }
+            }
+            
+            mostrarPerfil(); 
+
+            // Manejar click en EDITAR PERFIL: Oculta la info, muestra el formulario
+            btnEditar?.addEventListener('click', () => {
+                if (usuario) {
+                    infoDin.style.display = 'none';
+                    btnEditar.style.display = 'none';
+                    edicionForm.style.display = 'block';
+                    inputNombre.value = usuario.getNombre(); // Precargar el nombre actual
+                    mensaje.textContent = '';
+                    mensaje.style.color = 'red';
+                }
+            });
+            
+            // Manejar click en CANCELAR
+            document.getElementById('btnCancelarEdicion')?.addEventListener('click', (e) => {
+                e.preventDefault();
+                mostrarPerfil(); // Vuelve a la vista normal
+            });
+
+            // Manejar SUBMIT del Formulario de Edición
+            edicionForm?.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const nuevoNombre = inputNombre.value.trim();
+
+                if (nuevoNombre.length < 2) {
+                    mensaje.textContent = "El nombre debe tener al menos 2 caracteres.";
+                    return;
+                }
+                
+                // Llamada al método de edición de la clase PlataformaEventos
+                if (app.editarNombreUsuario(nuevoNombre)) {
+                    mensaje.style.color = '#00CC99';
+                    mensaje.textContent = "✅ Nombre actualizado con éxito!";
+                    
+                    // Retrasar el regreso para que el usuario vea el mensaje
+                    setTimeout(() => {
+                        mostrarPerfil(); // Vuelve a la vista normal y muestra el nuevo nombre
+                        // Refrescar la UI general (por si el nombre sale en el botón de cerrar sesión)
+                        if (typeof actualizarUI === 'function') {
+                             actualizarUI(); 
+                        }
+                    }, 1500);
+                } else {
+                    mensaje.style.color = 'red';
+                    mensaje.textContent = "❌ Error al guardar los cambios.";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
