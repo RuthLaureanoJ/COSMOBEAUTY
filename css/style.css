@@ -474,7 +474,7 @@ h2 {
 /* --- MEDIA QUERIES (RESPONSIVE DESIGN) --- */
 /* ========================================================= */
 
-/* Adaptación para Pantallas Pequeñas (Móviles y Tabletas Verticales) */
+/* Adaptación para Pantallas Pequeñas (Móviles y Tabletas Verticales - Hasta 768px) */
 @media (max-width: 768px) {
     
     .header {
@@ -541,6 +541,7 @@ h2 {
         padding: 15px;
     }
 
+    /* Estilos para alinear los costos y botones */
     .detalle-costo {
         width: 100%;
         flex-direction: row;
@@ -556,7 +557,7 @@ h2 {
     }
 }
 
-/* Adaptación para Tabletas (Horizontal) */
+/* Adaptación para Tabletas (Horizontal - 769px a 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
     
     .header {
@@ -571,7 +572,6 @@ h2 {
         padding: 0 15px;
     }
 
-    /* El grid de eventos funciona bien con 2 o 3 columnas */
     .eventos-grid {
         gap: 25px;
     }
