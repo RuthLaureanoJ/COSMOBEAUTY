@@ -32,19 +32,19 @@ body {
 }
 
 .logo img {
-    height: 40px; /* Tamaño del logo AUMENTADO */
+    height: 40px; 
     width: auto;
     margin-right: 15px;
-    background-color: white; /* Para contrastar el fondo magenta del logo */
+    background-color: white;
     padding: 5px;
     border-radius: 4px;
 }
 
 .logo h1 {
-    font-size: 1.7em; /* Título grande */
-    font-weight: 700; /* Negrita llamativa */
+    font-size: 1.7em; 
+    font-weight: 700; 
     margin: 0;
-    white-space: nowrap; /* Evita que el título se rompa */
+    white-space: nowrap; 
 }
 
 /* --- MENÚ DE NAVEGACIÓN (Nav-menu) --- */
@@ -61,7 +61,6 @@ body {
     padding: 8px 12px;
     border-radius: 4px;
     transition: background-color 0.3s;
-    /* MEJORAS DE NOTORIEDAD */
     font-weight: 600;
     letter-spacing: 0.5px;
     text-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
@@ -84,7 +83,7 @@ body {
 }
 
 .nav-menu .btn-primary:hover {
-    background-color: #00A6AD; /* Tono más oscuro para el hover */
+    background-color: #00A6AD; 
     color: white;
 }
 
@@ -159,7 +158,7 @@ h2 {
 
 .card-footer {
     display: flex;
-    justify-content: flex-end; /* Solo queda 'Ver Detalles' a la derecha */
+    justify-content: flex-end; 
     align-items: center;
     padding-top: 10px;
     border-top: 1px solid #eee;
@@ -187,20 +186,10 @@ h2 {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.6);
-    display: none; /* Oculto por defecto */
+    display: none; 
     justify-content: center;
     align-items: center;
     z-index: 1000;
-}
-
-.modal-content {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    max-width: 450px;
-    width: 90%;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    position: relative;
 }
 
 /* Estilo para el Modal de Detalles de Evento (Cuerpo dinámico) */
@@ -227,7 +216,7 @@ h2 {
 
 #detallesModalContent h2 {
     color: #7A008A;
-    border-bottom: 2px solid #00C4CC; /* CELESTE AQUA */
+    border-bottom: 2px solid #00C4CC; 
     padding-bottom: 10px;
     margin-bottom: 15px;
     font-size: 1.6em;
@@ -240,7 +229,7 @@ h2 {
 }
 
 #detallesModalContent .modal-costo {
-    color: #00C4CC; /* CELESTE AQUA */
+    color: #00C4CC; 
     font-weight: 700;
     margin-top: 15px;
     margin-bottom: 20px;
@@ -262,7 +251,7 @@ h2 {
 }
 
 .modal-acciones .btn-primary.inscrito {
-    background-color: #00C4CC; /* CELESTE AQUA */
+    background-color: #00C4CC; 
     cursor: default;
 }
 
@@ -274,7 +263,7 @@ h2 {
 }
 
 .pago-info-modal .btn-pago-modal {
-    background-color: #00C4CC !important; /* CELESTE AQUA */
+    background-color: #00C4CC !important; 
     color: white !important;
     font-weight: 700;
     margin-top: 10px;
@@ -285,238 +274,149 @@ h2 {
     position: absolute;
     top: 10px;
     right: 20px;
-    font-size: 32px; /* Aumentamos el tamaño */
+    font-size: 32px; 
     font-weight: bold;
-    color: white; /* Hacemos la X BLANCA */
+    color: white; 
     cursor: pointer;
     z-index: 100;
-    /* Añadimos sombra para asegurar visibilidad sobre cualquier imagen */
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.8); 
 }
 
 .close-modal-btn:hover {
-    color: #00C4CC; /* CELESTE AQUA */
+    color: #00C4CC; 
     text-shadow: 0 0 8px rgba(0, 0, 0, 1); 
 }
 
 /* --- ESTILOS DE FORMULARIOS (Login y Registro) --- */
-.form-group {
-    margin-bottom: 15px;
-}
+/* ... (El resto de estilos de formularios y mis eventos sigue igual) ... */
 
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 600;
-    color: #555;
-}
-
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; margin-bottom: 5px; font-weight: 600; color: #555; }
 .form-group input[type="email"],
 .form-group input[type="password"],
-.form-group input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 1em;
-}
+.form-group input[type="text"] { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; font-size: 1em; }
 
-.btn-primary {
-    background-color: #7A008A;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: background-color 0.3s;
-}
+.btn-primary { background-color: #7A008A; color: white; border: none; padding: 10px 15px; cursor: pointer; border-radius: 5px; font-weight: 600; transition: background-color 0.3s; }
+.btn-primary:hover { background-color: #5d006b; }
+.login-error-message, .registro-error-message { color: #ff4444; font-size: 0.9em; margin-top: 10px; font-weight: 600; }
 
-.btn-primary:hover {
-    background-color: #5d006b;
-}
+.registro-box { max-width: 600px; margin: 50px auto; padding: 30px; background-color: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); border-top: 5px solid #00C4CC; text-align: center; }
+.registro-box h2 { text-align: center; border: none; font-size: 1.9em; }
+.registro-box form { text-align: left; margin-top: 20px; }
 
-.login-error-message, .registro-error-message {
-    color: #ff4444;
-    font-size: 0.9em;
-    margin-top: 10px;
-    font-weight: 600;
-}
+#mis-eventos-contenedor { display: flex; flex-direction: column; gap: 15px; }
+.evento-inscrito-fila { display: flex; justify-content: space-between; align-items: center; background-color: white; padding: 15px 25px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); border-left: 5px solid #7A008A; }
+.evento-inscrito-fila h4 { color: #7A008A; margin: 0; font-size: 1.2em; }
+.evento-inscrito-fila p { margin: 0; font-size: 0.9em; color: #666; }
+.detalle-costo { text-align: right; display: flex; flex-direction: column; align-items: flex-end; margin-right: 20px; }
+.costo-estado { font-weight: 700; color: #7A008A; font-size: 1.1em; }
+.estado-pago { font-size: 0.85em; font-weight: 700; padding: 3px 8px; border-radius: 3px; margin-top: 5px; }
+.estado-pago.pendiente { color: white; background-color: #ffaa00; }
+.estado-pago.confirmado { color: white; background-color: #00C4CC; }
+.btn-cancelar { background-color: #ff4444; color: white; border: none; padding: 8px 15px; cursor: pointer; border-radius: 5px; font-weight: 600; transition: background-color 0.3s; flex-shrink: 0; }
+.btn-cancelar:hover { background-color: #cc0000; }
+.detalle-costo .btn-pago { background-color: #00C4CC; color: white; font-weight: 700; padding: 5px 10px; margin-top: 5px; font-size: 0.9em; transition: background-color 0.3s; }
+.detalle-costo .btn-pago:hover { background-color: #00A6AD; }
+.alerta-vacio { text-align: center; padding: 30px; border: 2px dashed #7A008A; background-color: #f0ffff; border-radius: 8px; font-style: italic; color: #00C4CC; }
 
-/* --- ESTILOS ESPECÍFICOS DE REGISTRO --- */
-.registro-box {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 30px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    border-top: 5px solid #00C4CC; /* CELESTE AQUA */
-    text-align: center;
-}
-
-.registro-box h2 {
-    text-align: center;
-    border: none;
-    font-size: 1.9em;
-}
-
-.registro-box form {
-    text-align: left;
-    margin-top: 20px;
-}
-
-/* --- ESTILOS DE MIS EVENTOS --- */
-#mis-eventos-contenedor {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.evento-inscrito-fila {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: white;
-    padding: 15px 25px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    border-left: 5px solid #7A008A;
-}
-
-.evento-inscrito-fila h4 {
-    color: #7A008A;
-    margin: 0;
-    font-size: 1.2em;
-}
-
-.evento-inscrito-fila p {
-    margin: 0;
-    font-size: 0.9em;
-    color: #666;
-}
-
-.detalle-costo {
-    text-align: right;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    margin-right: 20px;
-}
-
-.costo-estado {
-    font-weight: 700;
-    color: #7A008A;
-    font-size: 1.1em;
-}
-
-.estado-pago {
-    font-size: 0.85em;
-    font-weight: 700;
-    padding: 3px 8px;
-    border-radius: 3px;
-    margin-top: 5px;
-}
-
-.estado-pago.pendiente {
-    color: white;
-    background-color: #ffaa00; /* Naranja/Ámbar */
-}
-
-.estado-pago.confirmado {
-    color: white;
-    background-color: #00C4CC; /* CELESTE AQUA */
-}
-
-.btn-cancelar {
-    background-color: #ff4444;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: background-color 0.3s;
-    flex-shrink: 0;
-}
-
-.btn-cancelar:hover {
-    background-color: #cc0000;
-}
-
-.detalle-costo .btn-pago {
-    background-color: #00C4CC; /* CELESTE AQUA */
-    color: white;
-    font-weight: 700;
-    padding: 5px 10px;
-    margin-top: 5px;
-    font-size: 0.9em;
-    transition: background-color 0.3s;
-}
-
-.detalle-costo .btn-pago:hover {
-    background-color: #00A6AD; /* Tono más oscuro para el hover */
-    color: white;
-}
-
-.alerta-vacio {
-    text-align: center;
-    padding: 30px;
-    border: 2px dashed #7A008A;
-    background-color: #f0ffff; /* Fondo muy claro para combinar con celeste */
-    border-radius: 8px;
-    font-style: italic;
-    color: #00C4CC; /* CELESTE AQUA */
-}
 
 /* ========================================================= */
 /* --- MEDIA QUERIES (RESPONSIVE DESIGN) --- */
 /* ========================================================= */
 
-/* Adaptación para Pantallas Pequeñas (Móviles y Tabletas Verticales - Hasta 768px) */
+/* Adaptación para CELULARES ULTRA PEQUEÑOS (<= 480px) */
+@media (max-width: 480px) {
+    
+    /* Encabezado: Máximo Colapso */
+    .header {
+        padding: 10px;
+    }
+
+    .logo {
+        flex-direction: column; /* Apilamos logo y título */
+        align-items: center;
+        margin-bottom: 5px;
+    }
+
+    .logo img {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+
+    .logo h1 {
+        font-size: 1.2em; /* Título aún más pequeño */
+        text-align: center;
+        white-space: normal; /* Permitimos que el título se rompa si es muy largo */
+    }
+
+    /* Navegación: Apilado vertical forzado */
+    .nav-menu {
+        flex-direction: column; 
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .nav-menu a, .nav-menu .btn-primary {
+        margin: 4px 0; /* Menos margen horizontal, más vertical */
+        width: 90%; /* Hace que cada botón/link ocupe casi todo el ancho */
+        text-align: center;
+    }
+    
+    .container {
+        padding: 0 5px; /* Reducimos el padding lateral al mínimo */
+    }
+}
+
+/* Adaptación para MÓVILES y TABLETAS (<= 768px) */
 @media (max-width: 768px) {
     
-    /* 1. Encabezado - Colapsa y centra */
+    /* Header (Reglas heredadas o sobrescritas si son más generales que 480px) */
     .header {
         flex-direction: column;
         padding: 10px 15px;
+        width: 100% !important; 
     }
     
     .logo {
         margin-bottom: 10px;
         justify-content: center;
         width: 100%;
+        flex-grow: 0;
+        flex-shrink: 0;
     }
     
     .logo h1 {
-        font-size: 1.4em; /* Reducimos el tamaño para móviles */
+        font-size: 1.4em; 
     }
     
     .nav-menu {
-        flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+        flex-wrap: wrap; 
         justify-content: center;
-        width: 100%; /* Aseguramos que ocupe todo el ancho */
+        width: 100%; 
+        margin-top: 5px; 
     }
     
     .nav-menu a, .nav-menu .btn-primary {
         margin: 5px 5px;
         padding: 8px 10px;
-        font-size: 0.85em; /* Reducimos el texto de navegación */
+        font-size: 0.85em; 
+        flex-shrink: 0; 
     }
 
     .container {
         padding: 0 10px;
         margin: 20px auto;
+        width: 100%;
+        box-sizing: border-box; 
     }
 
-    /* 2. Grid de Eventos - Una sola columna */
+    /* Grid de Eventos - Una sola columna */
     .eventos-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
 
-    /* 3. Modal de Detalles - Pantalla Completa (Full Screen Modal) */
+    /* Modal de Detalles - Pantalla Completa (Full Screen Modal) */
     #detallesModalContent {
         max-width: 100%;
         height: 100%;
@@ -526,27 +426,15 @@ h2 {
         overflow-y: auto; 
     }
 
-    #detallesModalContent .modal-img {
-        height: 200px;
-    }
-    
-    .close-modal-btn {
-        top: 15px;
-        right: 15px;
-        font-size: 30px;
-    }
-
-    /* 4. Mis Eventos - Apilamiento vertical con botones al 100% */
+    /* Mis Eventos - Apilamiento vertical con botones al 100% */
     .evento-inscrito-fila {
         flex-direction: column;
         align-items: flex-start;
         padding: 15px;
-        width: auto; /* Permite que el contenido se ajuste al padding */
     }
 
     .detalle-costo {
         width: 100%;
-        /* Usamos flex para poner el costo/estado y el botón de pago en la misma línea */
         flex-direction: row; 
         justify-content: space-between;
         align-items: center;
@@ -556,15 +444,11 @@ h2 {
 
     .btn-cancelar {
         margin-top: 10px;
-        width: 100%; /* El botón Cancelar se extiende completamente */
-    }
-
-    .detalle-costo .btn-pago {
-        width: auto; /* El botón de pago mantiene su tamaño */
+        width: 100%; 
     }
 }
 
-/* Adaptación para Tabletas (Horizontal - 769px a 1024px) */
+/* Adaptación para TABLETAS HORIZONTAL (769px a 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
     
     .header {
